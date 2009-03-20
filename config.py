@@ -108,7 +108,11 @@ for i in xrange(numberOfClients):
             assert "invalid traffic choice"
         
         startTime += phaseDuration            
-        udpBinding = constanze.node.UDPBinding(node.tl.domainName, serverNode.tl.domainName, 777, logger)
+        udpBinding = constanze.node.UDPBinding(_domainName = node.tl.domainName,
+                                               _destinationDomainName = serverNode.tl.domainName,
+                                               _destionationPort = 777,
+                                               qosClass = openwns.qos.bestEffortQosClass,
+                                               parentLogger = logger)
         node.load.addTraffic(udpBinding, traffic)
     
     
