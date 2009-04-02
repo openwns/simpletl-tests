@@ -55,6 +55,7 @@ for i in xrange(numberOfServers):
     node = ServerNode(i)
     logger = node.logger
     udpListenerBinding = constanze.node.UDPListenerBinding(777, logger)
+    udpListenerBinding.udpService = node.tl.udpServiceName
     listener = constanze.node.Listener("listener",logger);
     node.load.addListener(udpListenerBinding, listener)
     simulator.simulationModel.nodes.append(node)
@@ -113,6 +114,7 @@ for i in xrange(numberOfClients):
                                                _destionationPort = 777,
                                                qosClass = openwns.qos.bestEffortQosClass,
                                                parentLogger = logger)
+        udpBinding.udpService = node.tl.udpServiceName
         node.load.addTraffic(udpBinding, traffic)
     
     
