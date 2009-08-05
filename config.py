@@ -112,7 +112,7 @@ for i in xrange(numberOfClients):
         udpBinding = constanze.node.UDPBinding(_domainName = node.tl.domainName,
                                                _destinationDomainName = serverNode.tl.domainName,
                                                _destionationPort = 777,
-                                               qosClass = openwns.qos.backgroundQosClass,
+                                               qosClass = openwns.qos.undefinedQosClass,
                                                parentLogger = logger)
         udpBinding.udpService = node.tl.udpServiceName
         node.load.addTraffic(udpBinding, traffic)
